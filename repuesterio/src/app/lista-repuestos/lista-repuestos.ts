@@ -12,6 +12,6 @@ export class ListaRepuestos {
     "descripcion" : "Multiple escape 3 cil",
     "precio" : "0000",
     "stock" : "10",
-    "imagen" : "assets/img/a65.jpeg"
+    "imagen" : "app/assets/img/a65.jpeg"
   }
 }
