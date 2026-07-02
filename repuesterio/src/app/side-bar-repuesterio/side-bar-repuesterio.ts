@@ -5,6 +5,7 @@ import { PromoCard } from '../promo-card/promo-card';
 
 @Component({
   selector: 'app-side-bar-repuesterio',
+  standalone: true,
   imports: [CaritoCard,ResumenCard,PromoCard],
   templateUrl: './side-bar-repuesterio.html',
   styleUrl: './side-bar-repuesterio.scss',

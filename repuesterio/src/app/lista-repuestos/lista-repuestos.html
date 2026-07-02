@@ -1,7 +1,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Código</th>
       <th scope="col">Descripción</th>
       <th scope="col">Imagen</th>
       <th scope="col">Precio</th>
@@ -9,24 +9,26 @@
     </tr>
   </thead>
   <tbody>
-    @for (repuesto of repuestos; track repuesto.codigo; let last = $last) {
-    <tr>
-      <th scope="row">{{repuesto.codigo}}</th>
-      <td><img [src]="repuesto.imagen" class="img-fluid" [alt]="repuesto.codigo"></td>
-      <td>{{repuesto.descripcion}}</td>
-      <td>{{repuesto.precio }}</td>
-      <td>
-        @if (repuesto.stock > 0){
-        <span class="badge text-bg-success">CON STOCK</span>
-        } @else {
-        <span class="badge text-bg-danger">SIN STOCK</span>
-        }
-      </td>
-    </tr>
+    @for (repuesto of repuestos; track repuesto.codigo) {
+      <tr [ngClass]="{ promo: repuesto.promo }">
+        <th scope="row">{{ repuesto.codigo }}</th>
+        <td>{{ repuesto.descripcion }}</td>
+        <td>
+          <img [src]="repuesto.imagen" class="img-fluid" [alt]="repuesto.codigo" />
+        </td>
+        <td>{{ repuesto.precio }}</td>
+        <td>
+          @if (repuesto.stock > 0) {
+            <span class="badge text-bg-success">Con stock</span>
+          } @else {
+            <span class="badge text-bg-danger">Sin stock</span>
+          }
+        </td>
+      </tr>
     } @empty {
-    <tr>
-      <td colspan="4" class="text-center text-muted"> NO HAY ELEMENTOS </td>
-    </tr>
+      <tr>
+        <td colspan="5" class="text-center text-muted">No hay elementos</td>
+      </tr>
     }
   </tbody>
 </table>

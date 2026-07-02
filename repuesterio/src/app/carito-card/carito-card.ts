@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-carito-card',
+  standalone: true,
   imports: [],
   templateUrl: './carito-card.html',
   styleUrl: './carito-card.scss',

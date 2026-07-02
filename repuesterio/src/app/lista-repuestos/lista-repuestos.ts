@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Repuesto } from './Repuesto';
+import { NgClass } from '@angular/common';
+import { Repuesto } from "./Repuesto";
 
 @Component({
   selector: 'app-lista-repuestos',
-  imports: [],
+  standalone: true,
+  imports: [NgClass],
   templateUrl: './lista-repuestos.html',
   styleUrl: './lista-repuestos.scss',
 })
@@ -32,7 +34,6 @@ export class ListaRepuestos {
     stock : 10,
     imagen : "assets/img/a65.jpeg",
     promo: false,
-  },
-];
-repuesto: any;
+    },
+  ];
 }
