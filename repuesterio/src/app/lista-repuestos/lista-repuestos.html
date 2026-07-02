@@ -9,26 +9,24 @@
     </tr>
   </thead>
   <tbody>
+    @for (repuesto of repuestos; track repuesto.codigo; let last = $last) {
     <tr>
       <th scope="row">{{repuesto.codigo}}</th>
-      <td><img [src]="repuesto.imagen" [alt]="repuesto.codigo"></td>
+      <td><img [src]="repuesto.imagen" class="img-fluid" [alt]="repuesto.codigo"></td>
       <td>{{repuesto.descripcion}}</td>
-      <td>{{repuesto.precio}}</td>
-      <td>{{repuesto.stock}}</td>
+      <td>{{repuesto.precio }}</td>
+      <td>
+        @if (repuesto.stock > 0){
+        <span class="badge text-bg-success">CON STOCK</span>
+        } @else {
+        <span class="badge text-bg-danger">SIN STOCK</span>
+        }
+      </td>
     </tr>
+    } @empty {
     <tr>
-      <th scope="row">0301-8684</th>
-      <td></td>
-      <td>Multiple escape 4 cil asp +</td>
-      <td>0000</td>
-      <td></td>
+      <td colspan="4" class="text-center text-muted"> NO HAY ELEMENTOS </td>
     </tr>
-    <tr>
-      <th scope="row">913-7825</th>
-      <td></td>
-      <td>Multiple escape turbo</td>
-      <td>0000</td>
-      <td></td>
-    </tr>
+    }
   </tbody>
 </table>
