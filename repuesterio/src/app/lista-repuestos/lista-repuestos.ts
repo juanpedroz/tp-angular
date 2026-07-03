@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Repuesto } from "./Repuesto";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-repuestos',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, FormsModule],
   templateUrl: './lista-repuestos.html',
   styleUrl: './lista-repuestos.scss',
 })
 export class ListaRepuestos {
+sumarCantidad(repuesto: Repuesto) {
+  if (repuesto.cantidad < repuesto.stock) {
+    repuesto.cantidad++;
+  }
+}
+restarCantidad(repuesto: Repuesto) {
+  if (repuesto.cantidad > 0) {
+    repuesto.cantidad--;
+  }
+}
   repuestos: Repuesto[] = [
     {
     codigo : 'A65',
@@ -18,6 +29,7 @@ export class ListaRepuestos {
     stock : 10,
     imagen : "assets/img/a65.jpeg",
     promo: true,
+    cantidad: 0,
   },
   {
     codigo : '0301-8684',
@@ -26,6 +38,7 @@ export class ListaRepuestos {
     stock : 0,
     imagen : "assets/img/a65.jpeg",
     promo: false,
+    cantidad: 0,
   },
   {
     codigo : '913-7825',
@@ -34,6 +47,7 @@ export class ListaRepuestos {
     stock : 10,
     imagen : "assets/img/a65.jpeg",
     promo: false,
+    cantidad: 0,
     },
   ];
 }

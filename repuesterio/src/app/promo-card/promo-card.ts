@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './promo-card.html',
   styleUrl: './promo-card.scss',
 })
-export class PromoCard {}
+export class PromoCard {
+repuestos: any;
+}

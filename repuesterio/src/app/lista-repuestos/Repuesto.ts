@@ -5,4 +5,5 @@ export interface Repuesto {
     stock: number;
     imagen: string;
     promo: boolean;
+    cantidad: number;
 }
