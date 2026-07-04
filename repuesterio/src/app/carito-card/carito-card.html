@@ -1,1 +1,20 @@
-<p>carito-card works!</p>
+<div class="card">
+  <div class="card-header">
+    🛒 Carrito
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let item of cart">
+      <div>
+        {{item.nombre}} x{{item.cantidad}}
+      </div>
+      <div>
+        ${{item.precio * item.cantidad}}
+      </div>
+    </li>
+  </ul>
+
+  <div class="card-footer">
+    <!-- Total: ${{total}} -->
+  </div>
+</div>

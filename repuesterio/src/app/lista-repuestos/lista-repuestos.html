@@ -32,11 +32,11 @@
         <td>
           <button class="btn btn-outline-danger btn-sm"
           (click)="restarCantidad(repuesto)">-</button>
-          <input type="text" [(ngModel)]="repuesto.cantidad"
-          class="form-control form-control-sm text-center" style="width: 50px;" readonly>
-          {{ repuesto.cantidad}}
+          <input type="number" [(ngModel)]="repuesto.cantidad"
+          class="form-control form-control-sm text-center" style="width: 50px;">
           <button class="btn btn-outline-success btn-sm"
           (click)="sumarCantidad(repuesto)">+</button>
+          {{ repuesto.cantidad}}
         </td>
       </tr>
     } @empty {
