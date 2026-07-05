@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { ListaRepuestos } from './lista-repuestos/lista-repuestos';
-import { SideBarRepuesterio } from './side-bar-repuesterio/side-bar-repuesterio';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ListaRepuestos, SideBarRepuesterio],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
