@@ -32,6 +32,13 @@
             *ngIf="repuesto.stock"
           >
           </app-input-integer>
+          <button
+            class="btn btn-outline-primary"
+            (click)="agregarAlCarrito(repuesto)"
+            *ngIf="repuesto.stock"
+          >
+            Comprar
+          </button>
         </td>
       </tr>
     } @empty {

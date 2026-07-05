@@ -4,12 +4,9 @@
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item d-flex justify-content-between" *ngFor="let item of cart">
-      <div>
-        {{item.nombre}} x{{item.cantidad}}
-      </div>
-      <div>
-        ${{item.precio * item.cantidad}}
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let item of (listaCarrito$ | async)">
+      <div *ngIf="item.cantidad > 0">
+        {{item.codigo}} x{{item.cantidad}}
       </div>
     </li>
   </ul>
