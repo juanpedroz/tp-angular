@@ -5,7 +5,7 @@ export const REPUESTOS: Repuesto[] = [
     codigo: 'A65',
     descripcion: 'Multiple escape 3 cil',
     precio: 10000,
-    stock: 10,
+    stock: 0,
     imagen: 'assets/img/a65.jpeg',
     promo: true,
     cantidad: 0,

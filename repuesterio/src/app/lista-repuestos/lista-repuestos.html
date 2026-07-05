@@ -8,7 +8,6 @@
       <th scope="col">Stock</th>
       <th scope="col">Cantidad</th>
     </tr>
-
   </thead>
   <tbody>
     @for (repuesto of repuestos; track repuesto.codigo) {
@@ -16,10 +15,7 @@
         <th scope="row">{{ repuesto.codigo }}</th>
         <td>{{ repuesto.descripcion }}</td>
         <td>
-          <img class="img-thumbnail"
-          width="100"
-          [src]="repuesto.imagen"
-          [alt]="repuesto.codigo">
+          <img class="img-thumbnail" width="100" [src]="repuesto.imagen" [alt]="repuesto.codigo" />
         </td>
         <td>{{ repuesto.precio }}</td>
         <td>
@@ -30,13 +26,7 @@
           }
         </td>
         <td>
-          <button class="btn btn-outline-danger btn-sm"
-          (click)="restarCantidad(repuesto)">-</button>
-          <input type="number" [(ngModel)]="repuesto.cantidad"
-          class="form-control form-control-sm text-center" style="width: 50px;">
-          <button class="btn btn-outline-success btn-sm"
-          (click)="sumarCantidad(repuesto)">+</button>
-          {{ repuesto.cantidad}}
+          <app-input-integer *ngIf="repuesto.stock" [repuesto]="repuesto"></app-input-integer>
         </td>
       </tr>
     } @empty {
