@@ -26,7 +26,12 @@
           }
         </td>
         <td>
-          <app-input-integer *ngIf="repuesto.stock" [repuesto]="repuesto"></app-input-integer>
+          <app-input-integer
+            [(cantidad)]="repuesto.cantidad"
+            [max]="repuesto.stock"
+            *ngIf="repuesto.stock"
+          >
+          </app-input-integer>
         </td>
       </tr>
     } @empty {

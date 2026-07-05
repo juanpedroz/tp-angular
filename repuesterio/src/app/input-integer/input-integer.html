@@ -1,9 +1,9 @@
 <div class="input-group input-group-sm">
-  <button class="btn btn-outline-danger btn-sm" (click)="restarCantidad(repuesto)">-</button>
+  <button class="btn btn-outline-danger btn-sm" (click)="restarCantidad()">-</button>
   <input
     type="text"
-    [(ngModel)]="repuesto.cantidad"
+    [(ngModel)]="cantidad"
     class="form-control form-control-sm text-center"
   />
-  <button class="btn btn-outline-success btn-sm" (click)="sumarCantidad(repuesto)">+</button>
+  <button class="btn btn-outline-success btn-sm" (click)="sumarCantidad()">+</button>
 </div>
