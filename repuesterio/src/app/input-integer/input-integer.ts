@@ -27,17 +27,4 @@ export class InputInteger {
       this.cantidadChange.emit(this.cantidad);
     }
   }
-  // @Input() repuesto!: Repuesto;
-
-  // sumarCantidad(repuesto: Repuesto) {
-  //   if (repuesto.cantidad < repuesto.stock) {
-  //     repuesto.cantidad++;
-  //   }
-  // }
-
-  // restarCantidad(repuesto: Repuesto) {
-  //   if (repuesto.cantidad > 0) {
-  //     repuesto.cantidad--;
-  //   }
-  // }
 }
