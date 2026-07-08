@@ -1,50 +1,57 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Código</th>
-      <th scope="col">Descripción</th>
-      <th scope="col">Imagen</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Stock</th>
-      <th scope="col">Cantidad</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (repuesto of repuestos; track repuesto.codigo) {
-      <tr [ngClass]="{ promo: repuesto.promo }">
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Descripción</th>
+        <th scope="col" class="text-center">Imagen</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="repuestos.length === 0">
+        <td colspan="7" class="text-center text-muted py-4">No hay elementos</td>
+      </tr>
+
+      <tr
+        *ngFor="let repuesto of repuestos; trackBy: trackByCodigo"
+        [ngClass]="{ promo: repuesto.promo }"
+      >
         <th scope="row">{{ repuesto.codigo }}</th>
         <td>{{ repuesto.descripcion }}</td>
-        <td>
-          <img class="img-thumbnail" width="100" [src]="repuesto.imagen" [alt]="repuesto.codigo" />
+        <td class="text-center">
+          <img class="img-thumbnail repuesto-img" [src]="repuesto.imagen" [alt]="repuesto.codigo" />
         </td>
-        <td>{{ repuesto.precio }}</td>
+        <td>${{ repuesto.precio }}</td>
         <td>
-          @if (repuesto.stock > 0) {
-            <span class="badge text-bg-success">Con stock</span>
-          } @else {
-            <span class="badge text-bg-danger">Sin stock</span>
-          }
+          <span *ngIf="repuesto.stock > 0" class="badge text-bg-success">Con stock</span>
+          <span *ngIf="repuesto.stock <= 0" class="badge text-bg-danger">Sin stock</span>
         </td>
         <td>
-          <app-input-integer
-            [(cantidad)]="repuesto.cantidad"
-            [max]="repuesto.stock"
-            *ngIf="repuesto.stock"
-          >
-          </app-input-integer>
-          <button
-            class="btn btn-outline-primary"
-            (click)="agregarAlCarrito(repuesto)"
-            *ngIf="repuesto.stock"
-          >
-            Comprar
-          </button>
+          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2">
+            <app-input-integer
+              [(cantidad)]="repuesto.cantidad"
+              [max]="repuesto.stock"
+              *ngIf="repuesto.stock"
+            >
+            </app-input-integer>
+          </div>
+        </td>
+        <td class="text-center">
+          <div *ngIf="repuesto.stock > 0">
+            <button
+              class="btn btn-primary"
+              (click)="agregarAlCarrito(repuesto)"
+              [disabled]="repuesto.cantidad <= 0 || repuesto.stock <= 0"
+            >
+              Agregar al carrito
+            </button>
+          </div>
         </td>
       </tr>
-    } @empty {
-      <tr>
-        <td colspan="6" class="text-center text-muted">No hay elementos</td>
-      </tr>
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

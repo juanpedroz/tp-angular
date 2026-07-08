@@ -1,9 +1,15 @@
-img {
-  height: 200px;
-  object-fit: cover;
-  width: 200px;
+.repuesto-img {
+  height: 140px;
+  width: 140px;
+  object-fit: contain;
+  background: #fff;
+  padding: 0.35rem;
 }
 
 .promo {
   background: #fff6f6;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
