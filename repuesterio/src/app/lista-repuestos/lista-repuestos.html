@@ -23,7 +23,7 @@
         <th scope="row">{{ repuesto.codigo }}</th>
         <td>{{ repuesto.descripcion }}</td>
         <td class="text-center">
-          <img class="img-thumbnail repuesto-img" [src]="repuesto.imagen" [alt]="repuesto.codigo" />
+          <img class="img-thumbnail repuesto-img" [src]="'assets/img/' + repuesto.imagen" [alt]="repuesto.codigo" />
         </td>
         <td>${{ repuesto.precio }}</td>
         <td>
