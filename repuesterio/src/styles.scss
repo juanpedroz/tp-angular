@@ -1,3 +1,31 @@
+@import "bootstrap/scss/bootstrap";
+
+:root {
+  color-scheme: light;
+}
+
 body {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+.card {
+  border: 0;
+  box-shadow: 0 0.5rem 1.5rem rgba(15, 23, 42, 0.08);
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }

@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table align-middle">
+  <table class="table table-hover align-middle mb-0">
     <thead class="table-light">
       <tr>
         <th scope="col">Código</th>
@@ -13,19 +13,19 @@
     </thead>
     <tbody>
       <tr *ngIf="repuestos.length === 0">
-        <td colspan="7" class="text-center text-muted py-4">No hay elementos</td>
+        <td colspan="7" class="text-center text-muted py-4">No hay elementos disponibles por el momento.</td>
       </tr>
 
       <tr
         *ngFor="let repuesto of repuestos; trackBy: trackByCodigo"
         [ngClass]="{ promo: repuesto.promo }"
       >
-        <th scope="row">{{ repuesto.codigo }}</th>
+        <th scope="row" class="fw-semibold">{{ repuesto.codigo }}</th>
         <td>{{ repuesto.descripcion }}</td>
         <td class="text-center">
           <img class="img-thumbnail repuesto-img" [src]="'assets/img/' + repuesto.imagen" [alt]="repuesto.codigo" />
         </td>
-        <td>${{ repuesto.precio }}</td>
+        <td class="fw-semibold">${{ repuesto.precio }}</td>
         <td>
           <span *ngIf="repuesto.stock > 0" class="badge text-bg-success">Con stock</span>
           <span *ngIf="repuesto.stock <= 0" class="badge text-bg-danger">Sin stock</span>
@@ -43,11 +43,11 @@
         <td class="text-center">
           <div *ngIf="repuesto.stock > 0">
             <button
-              class="btn btn-primary"
+              class="btn btn-primary btn-sm"
               (click)="agregarAlCarrito(repuesto)"
               [disabled]="repuesto.cantidad <= 0 || repuesto.stock <= 0"
             >
-              Agregar al carrito
+              Agregar
             </button>
           </div>
         </td>
