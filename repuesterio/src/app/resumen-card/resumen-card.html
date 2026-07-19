@@ -4,12 +4,13 @@
   </div>
 
   <div class="card-body">
-    <!-- <p>Subtotal: ${{subtotal}}</p> -->
-    <!-- <p>Envío: ${{envio}}</p> -->
+    <ng-container *ngIf="(total$ | async) as total">
+      <p *ngIf="total > 0" class="mb-2">Total: ${{ total | number: '1.2-2' }}</p>
+      <p *ngIf="total === 0" class="text-muted mb-3">El carrito está vacío.</p>
+    </ng-container>
     <hr>
-    <!-- <h5>Total: ${{total}}</h5> -->
 
-    <button class="btn btn-success w-100">
+    <button class="btn btn-success w-100" [disabled]="(total$ | async) === 0">
       Finalizar compra
     </button>
   </div>
