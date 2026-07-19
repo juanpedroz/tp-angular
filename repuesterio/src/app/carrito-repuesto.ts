@@ -11,13 +11,18 @@ export class CarritoRepuestos {
   listaCarrito: BehaviorSubject<Repuesto[]> = new BehaviorSubject(this._listaCarrito);
 
   agregarAlCarrito(repuesto: Repuesto) {
+    const cantidad = Number(repuesto.cantidad) || 0;
+    if (cantidad <= 0) {
+      return;
+    }
+
     let item: Repuesto | undefined = this._listaCarrito.find((v1) => v1.codigo === repuesto.codigo);
     if (item) {
-      item.cantidad += repuesto.cantidad;
+      item.cantidad += cantidad;
     } else {
-      this._listaCarrito.push({... repuesto});// Agrega una copia del repuesto al carrito
+      this._listaCarrito.push({ ...repuesto, cantidad }); // Agrega una copia del repuesto al carrito
     }
-    this.listaCarrito.next(this._listaCarrito);// Actualiza el BehaviorSubject con la nueva lista del carrito
+    this.listaCarrito.next(this._listaCarrito); // Actualiza el BehaviorSubject con la nueva lista del carrito
   }
 
 }

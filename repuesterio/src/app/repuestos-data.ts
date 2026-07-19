@@ -17,9 +17,15 @@ export class RepuestosDataService {
 
   public getRepuestos(): Observable<Repuesto[]> {
     return this.http.get<any[]>(ENDPOINT).pipe(
+      map((repuestos: any[]) => repuestos.map((repuesto) => ({
+        ...repuesto,
+        precio: Number(String(repuesto.precio).replace(',', '.')) || 0,
+        stock: Number(repuesto.stock) || 0,
+        promo: String(repuesto.promo).toLowerCase() === 'true',
+        cantidad: 0,
+      })) ),
       tap((repuestos: Repuesto[]) => {
         this.repuestos = repuestos;
-        this.repuestos.forEach(repuesto => repuesto.cantidad = 0);
       }),
     );
 

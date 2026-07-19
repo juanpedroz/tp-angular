@@ -11,9 +11,10 @@
       <div *ngIf="item.cantidad > 0" class="d-flex justify-content-between align-items-center">
         <span>{{ item.codigo }}</span>
         <span class="badge text-bg-primary">x{{ item.cantidad }}</span>
+        <span class="badge text-bg-success">S/. {{ item.precio * item.cantidad | number: '1.2-2' }}</span>
       </div>
     </li>
-    <li class="list-group-item text-muted text-center py-4" *ngIf="!(listaCarrito$ | async)?.some(item => item.cantidad > 0)">
+    <li class="list-group-item text-muted text-center py-4" *ngIf="!(listaCarrito$ | async)?.some(hasCantidad)">
       Tu carrito está vacío.
     </li>
   </ul>
